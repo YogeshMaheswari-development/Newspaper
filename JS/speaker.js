@@ -1,0 +1,2 @@
+const { exec } = require('child_process');function say(message){exec(`mshta vbscript:Execute("CreateObject(""SAPI.SpVoice"").Speak(""${message}"")(window.close)")`, (error, stdout, stderr) => {if (error) console.error(`exec error: ${error}`)})};
+module.exports = {say}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Contact</title>
+    <link rel="stylesheet" type="text/css" href="/form.css" />
+    <link rel="stylesheet" type="text/css" href="/body.css" />
+    <link rel="stylesheet" type="text/css" href="/table.css" />
+</head>
+<body>
+  <div class="container">
+            <div class="row">
+              
+              <div class="col-xs-12 col-sm-6">
+                <form class="Newspapar-form" action="/add-newspaper" method="post">
+                  <label for="phonenum">Add Mobile Number</label>
+                  <input id="phonenum" type="tel" name="phonenum" class="phone-num" placeholder="Phone Number" autofocus autocomplete="off" maxlength="10">
+                  <br>
+                  <input type="submit" value="Submit" class="submit">
+                  </form>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                  <section class="container">
+                    <form class="row" action="/date-range" method="post">
+                      <label for="date" class="col-1 col-form-label">From Date</label>
+                      <div class="col-5">
+                        <div class="input-group date" id="datepicker" style="width: 90%;right: 5%;left: 5%;">
+                          <input type="date" class="form-control" id="fromdate" name="fromdate"/>
+                          <span class="input-group-append">
+                            <span class="input-group-text bg-light d-block">
+                              <i class="fa fa-calendar"></i>
+                            </span>
+                          </span>
+                        </div>
+                      </div>
+                      <label for="date" class="col-1 col-form-label">To Date</label>
+                      <div class="col-5">
+                        <div class="input-group date" id="datepicker" style="width: 90%;right: 5%;left: 5%;">
+                          <input type="date" class="form-control" id="todate" name="todate" disabled/>
+                          <span class="input-group-append">
+                            <span class="input-group-text bg-light d-block">
+                              <i class="fa fa-calendar"></i>
+                            </span>
+                          </span>
+                        </div>
+                      </div>
+                      <br>
+                      <div class="csv-btn">
+                        <input type="button" class="download" value="Download Date CSV" onclick="window.location.href = '/date-range';">
+                      </div>
+                      <br><br>
+                      <div class="csv-btn">
+                        <input type="button" class="download" value="Download Full CSV" onclick="window.location.href = '/download';">
+                      </div>
+                    </form>
+                  </section>
+                  </div>
+              <div class="col-xs-12 col-sm-6 col-md-3">
+                <div class="box">
+                  <h3>Unique Records</h3>
+                  <p><%= Unique%></p>
+              </div>
+                <div class="box">
+                    <h3>Total Records</h3>
+                    <p><%= Total%></p>
+                </div>
+                <div class="box">
+                  <h3>Last 10 Records</h3>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th class="table-head">Number</th>
+                        <th class="table-head">Time</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                     <% for (var i = 0; i < LastRecords.length; i++) { %>
+                      <tr>
+                        <td><%= LastRecords[i].Phone_Number %></td>
+                        <td><%= LastRecords[i].Time %></td>
+                      </tr>
+                      <%}%>
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+          </div>
+          </div>
+          <script>
+            
+            document.getElementById("todate").value = `${new Date().getFullYear()}-${("0" + (new Date().getMonth()+1) ).slice(-2)}-${new Date().getDate()}`;
+          </script>
+</body>
+</html>

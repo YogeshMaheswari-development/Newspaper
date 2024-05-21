@@ -1,0 +1,32 @@
+@import url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');
+input{
+    width: 90%;
+    margin: 2%;
+    font-size: 26px;
+}
+label{
+    font-size: 26px;
+    margin: 2%;
+}
+form{
+    width: 100%;
+}
+.phone-num{
+    border-radius: 20px;
+    font-size: 72px;
+    text-align: center;
+}
+input[type="submit"]{
+    border-radius: 20px;
+    width: 50%;
+    margin-left: 25%;
+    background-color:burlywood;
+}
+.btn{
+    width: 100%;
+}
+.download{
+    border-radius: 20px;
+    background-color: rebeccapurple;
+    color: #fff;
+}

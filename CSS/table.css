@@ -1,0 +1,6 @@
+.container .row .col-xs-12 .box table tbody tr td{
+    border: 6px transparent solid;
+}
+.container .row .col-xs-12 .box table tbody *{
+    text-align: center;
+}
