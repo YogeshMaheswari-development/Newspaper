@@ -46,6 +46,7 @@ databasejs.db.query(query, [startDate], (error, data) => {
           });
         })
 });
+      response.redirect('/')
   }
   else{
       alert.sendNotification('Error','Please type Valid Date');
